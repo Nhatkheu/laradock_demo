@@ -69,7 +69,6 @@
                 <div class="title m-b-md center">
                     Docker
                 </div>
-
                 <div class="links">
                   <ul>
                     <h3>Docker là gì?</h3>
@@ -94,6 +93,7 @@
                     </li>
                   </ul>
                 </div>
+                <a href="{{url('blog')}}">CRUD</a>
             </div>
         </div>
     </body>
