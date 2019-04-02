@@ -5,18 +5,22 @@
     <div class="form-group">
         <input name="_method" type="hidden" value="PATCH">
         <label for="title">Title</label>
-        <input type="text" class="form-control form-control-lg" name="title" value="{{$blog->title}}" placeholder="Title">
+        <input type="text" class="form-control form-control-lg" id="title" name="title" value="{{$blog->title}}" placeholder="Title">
     </div>
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea class="form-control" name="content" rows="3" placeholder="content">{{$blog->content}}</textarea>
+        <textarea class="form-control" id="content" name="content" rows="3" placeholder="content">{{$blog->content}}</textarea>
     </div>
     <div class="form-group">
-      <label for="image">Image</label>
-      <br>
-      <img id="image" src="{{$blog->image}}" onerror="if (this.src != '{{url('img/default-image.jpg')}}') this.src = '{{url('img/default-image.jpg')}}';"  style="max-width: 200px; max-height: 200px; margin-bottom: 15px;">
-      <input type="file" name="imageTest" class="form-control-file" onchange="readURL(this);" value="{{$blog->image}}" required>
+        <label for="image">Image</label>
+        <br>
+        <img id="image" src="{{asset(($blog->image!='') ? 'upload/'.$blog->image:'img/default-image.jpg')}}" style="max-width: 200px; max-height: 200px; margin-bottom: 15px;">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imageTest" onchange="readURL(this);" required>
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
     </div>
-    <input type="submit" class="btn btn-primary" name="Update">
+    <input type="submit" class="btn btn-primary" value="Update">
 </form>
 @endsection
+<!-- src="{{asset((isset($image) && $image->image!='')?'uploads/'.$image->image:'images/noimage.jpg')}}" -->
