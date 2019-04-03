@@ -7,3 +7,14 @@ function readURL(input) {
         };
     }
 }
+function changeProfile() {
+            $('#image').click();
+        }
+        $('#image').change(function () {
+            var imgPath = $(this)[0].value;
+            var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+            if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
+                readURL(this);
+            else
+                alert("Please select image file (jpg, jpeg, png).")
+        });

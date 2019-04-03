@@ -16,7 +16,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs            = Blog::all();
+        $blogs            = Blog::paginate(10);
         return view('blog.index', compact('blogs','image'));
     }
 
@@ -38,6 +38,10 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+      $this->validate($request, [
+        'imageTest' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+      ]);
+
       if ($request->hasFile('imageTest')){
          $fileNameWithEx  = $request->file('imageTest')->getClientOriginalName();
          $fileNameToStore = time(). '_' .$fileNameWithEx;

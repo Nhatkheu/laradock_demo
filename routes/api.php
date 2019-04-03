@@ -48,30 +48,30 @@ Route::get('/books', function(Request $request){
 });
 
 // Send du lieu JSON ve Server bang phuong thuc POST
-// Route::post('/books', function(Request $request){
-//
-//     $entries = [
-//         [
-//             "isbn" => "9781593275846",
-//             "title" => "Eloquent JavaScript, Second Edition",
-//             "author" => "Marijn Haverbeke"
-//         ],
-//         [
-//             "isbn" => "9781449331818",
-//             "title" => "Learning JavaScript Design Patterns",
-//             "author" => "Addy Osmani"
-//         ]
-//     ];
-//
-//     // Get book data from POST
-//     $book = [
-//         "isbn" => $request->input('isbn'),
-//         "title" => $request->input('title'),
-//         "author" => $request->input('author')
-//     ];
-//
-//     // Append news book into current list.
-//     $entries[] = $book;
-//
-//     return response()->json($entries, 200);
-// });
+Route::post('/books', function(Request $request){
+
+    $entries = [
+        [
+            "isbn" => "9781593275846",
+            "title" => "Eloquent JavaScript, Second Edition",
+            "author" => "Marijn Haverbeke"
+        ],
+        [
+            "isbn" => "9781449331818",
+            "title" => "Learning JavaScript Design Patterns",
+            "author" => "Addy Osmani"
+        ]
+    ];
+
+    // Get book data from POST
+    $book = [
+        "isbn" => $request->input('isbn'),
+        "title" => $request->input('title'),
+        "author" => $request->input('author')
+    ];
+
+    // Append news book into current list.
+    $entries[] = $book;
+
+    return response()->json($entries, 200);
+});

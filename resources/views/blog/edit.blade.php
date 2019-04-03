@@ -21,6 +21,6 @@
         </div>
     </div>
     <input type="submit" class="btn btn-primary" value="Update">
+    <a class="btn btn-info" href="{{ URL::previous() }}">Back</a>
 </form>
 @endsection
-<!-- src="{{asset((isset($image) && $image->image!='')?'uploads/'.$image->image:'images/noimage.jpg')}}" -->
